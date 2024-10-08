@@ -12,6 +12,12 @@ const userSchema = new mongoose.Schema(
       default: "user",
     },
   },
+  //relación entre colecciones
+  {
+    libreria: { type: mongoose.Schema.Types.ObjectId, ref: "Libreria" }, //vincular usuario con libreria en concreto
+    comicsComprados: [{ type: mongoose.Schema.Types.ObjectId, ref: "comics" }] //array de comics comprados por el usuario
+
+  },
   {
     timestamps: true,
     collection: "users",
